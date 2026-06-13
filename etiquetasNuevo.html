@@ -39,6 +39,72 @@
         <!-- Ruta relativa: assets\img\logoCarreta.png -->
         <!-- Debmos utilizar siempre rutas relativas-->
 
+        <!-- Icono decorativo accesible -->
+        <!-- <i class="fa-solid fa-code" aria-hidden="true"></i> Habilidades técnicas</h2> -->
+        <!-- aria-hidden: Atributo de accesibilidad de ARIA (Accessible Rich Internet Applications) que indica a los lectores de pantalla y otras tecnologias de asistencia que un elemento debe ser ignorado. -->
+        
+        <!-- Audio -->
+        <audio src="test.mp3" controls>
+            Su navegador no soporta el elemento audio.
+        </audio>
+
+        <audio controls>
+            Su navegador no soporta el elemento audio.
+            <source 
+            src="test.mp3" 
+            />
+        </audio>
+
+        <!-- Video
+        controls: Proporciona controles estándar accesibles para teclado y lectores de pantalla.
+        kind="captions": subtítulos con diálogos y sonidos relevantes.
+        srclang: idioma.
+        default: activa esa pista por defecto.
+        No utilizar: autoplay: El contenido que se reproduce automăticamente puede resultar molesto y dificultar el uso de
+        lectores de pantalla.
+        -->
+
+        <video src="test.mp4" controls width="500px">
+        Su navegador no soporta la reproducción de video.
+        <track
+            kind="captions"
+            src="subtitulos-en.vtt"
+            srclang="en"
+            label="Inglés - en"
+        .. />
+        </video>
+
+        <!-- Tablas: Representar información más organizada
+        Sintaxis:
+        table: Define la tabla
+        caption: Título de la tabla
+        <tr> (Table Row): Representa una fila. Cada fila puede contener encabezados (<th>) o datos (<td>).
+        <th> (Table Header): Representa una celda de encabezado. Los navegadores suelen mostrarla en negrita y centrada. Los
+        lectores de pantalla la utilizan para identificar los encabezados de las columnas o filas.
+        <td> (Table Data): Representa una celda de datos. Contiene los datos normales de la tabla. 
+        -->
+
+        <table>
+            <caption>Ejemplo de tabla</caption> <!-- Nombre de la tabla -->
+            <tr>
+                <th>Nombre</th>
+                <th>Edad</th>
+                <th>Ciudad</th>
+            </tr>
+            <tr>
+                <td>Ana</td>
+                <td>30</td>
+                <td>Madrid</td>
+            </tr>
+            <tr>
+                <td>Carlos</td>
+                <td>25</td>
+                <td>Barcelona</td>
+            </tr>
+
+        </table>
+        
+
 
     </main>
 
