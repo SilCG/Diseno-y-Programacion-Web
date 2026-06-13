@@ -13,6 +13,18 @@
 <details>
 <summary>Informe de retroalimentación con IA y verificación de criterios</summary>
 
+<h2>Informe de retroalimentación con IA</h2>
+
+<p>Sometí mi código HTML completo a Claude (Anthropic) utilizando el prompt obligatorio centrado en accesibilidad y semántica. La IA identificó cinco recomendaciones, de las cuales aplicaré cuatro.</p>
+
+<p><strong>Recomendaciones útiles aplicadas:</strong> La más importante fue corregir el cierre de <code>&lt;header&gt;</code>, que tenía la etiqueta de apertura repetida en lugar de <code>&lt;/header&gt;</code>. Este error rompía la estructura semántica del documento, ya que el navegador no sabía dónde terminaba el encabezado, lo que podía hacer que el <code>&lt;nav&gt;</code> y el <code>&lt;main&gt;</code> quedaran anidados incorrectamente dentro de él. También corregí <code>lang="ep"</code> por <code>lang="es"</code>, ya que "ep" no es un código de idioma válido (ISO 639-1) y los lectores de pantalla dependen de ese atributo para elegir la pronunciación correcta. Cambié las rutas de imágenes de barras invertidas (<code>assets\img\...</code>) a barras normales (<code>assets/img/...</code>), porque las invertidas son sintaxis de Windows y pueden fallar al subir el sitio a un servidor o GitHub Pages. Finalmente, eliminé el <code>&lt;hr&gt;</code> antes del <code>&lt;footer&gt;</code>, ya que esa línea se interpretaba como una separación temática que en realidad no existe entre el contenido principal y el pie de página.</p>
+
+<p><strong>Recomendación no aplicada:</strong> La IA sugirió agregar un <code>&lt;h2&gt;</code> visualmente oculto antes del <code>&lt;footer&gt;</code> con el texto "Información de contacto". No la aplicaré porque añadiría complejidad extra (ocultar elementos con CSS) que está fuera del alcance de esta práctica, y el <code>&lt;footer&gt;</code> ya contiene un párrafo "Contacto:" que orienta al lector de forma suficiente.</p>
+
+<p><strong>Evaluación del análisis de la IA:</strong> En general, la IA identificó correctamente tanto el error más grave (el <code>&lt;header&gt;</code> mal cerrado) como las fortalezas reales del código, como el uso correcto de <code>alt=""</code> en la imagen decorativa, el <code>alt</code> descriptivo en la imagen informativa, el <code>aria-hidden="true"</code> en los tres íconos decorativos y el <code>aria-label</code> del <code>&lt;nav&gt;</code>. No detecté errores ni sesgos evidentes en su análisis; sin embargo, no profundizó en si el video de YouTube cumplía completamente los requisitos del ejercicio más allá de la accesibilidad básica.</p>
+
+<p><strong>Cambios reales realizados:</strong> corrección de <code>&lt;/header&gt;</code>, cambio de <code>lang="ep"</code> a <code>lang="es"</code>, rutas de imágenes con <code>/</code>, y eliminación del <code>&lt;hr&gt;</code> antes del footer.</p>
+
 <!--
 VERIFICACIÓN DE CRITERIOS:
 - header: contiene h1 y descripción de la página, correctamente cerrado.
@@ -26,6 +38,7 @@ VERIFICACIÓN DE CRITERIOS:
 - 3 íconos decorativos con aria-hidden="true": fa-pizza-slice, fa-star, fa-fire.
 - Validación: probado en Chrome. Todos los enlaces y anclas funcionan correctamente.
 -->
+
 </details>
 
     <header>
