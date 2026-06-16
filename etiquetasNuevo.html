@@ -10,7 +10,23 @@
 
     <header> <!-- Encabezado de la página -->
         <h1>Ejemplo de diferentes etiquetas</h1> <!-- H1: Título 1-->
-    <header> 
+    </header>
+
+    <!-- Barra de navegación (navigation bar o navbar): Sección de una página que contiene enlaces para desplazarse entre las
+    distintas páginas o secciones de un sitio.
+    Sintaxis:
+        <nav>: define una seccion de navegación.
+        <a>: crea enlaces a otras páginas o secciones.
+        href: especifica el destino del enlace.
+        aria-current="page": Indica que es la página actual (el lector de pantalla anunciará que "Inicio" es la página actual.)
+    -->
+
+    <nav> <!-- Barra de navegación -->
+        <a href="">Semana 1</a> <!-- Enlace -->
+        <a href="#proyectos-individuales">Proyectos</a> <!-- Enlace -->
+        <a href="https://fontawesome.com/">Font Awesome</a> <!-- Enlace -->
+    </nav>
+    
 
     <main> <!-- Contenido principal de la página -->
         <h2>Subtítulo 1</h2> <!-- pueden haber N h2-->
@@ -19,12 +35,12 @@
         <h3>Subtítulo 1.1</h3> <!-- pueden haber N h3-->
         
         <p>Texto largo</p> <!-- Párrafo-->
-        <h5>Proyectos</h5>
+        <h5 id="proyectos-individuales">Proyectos Individuales</h5>
         <ul>
             <li>Sopa de letras </li> <!-- Elemento de lista -->
             <li>Sudoku</li> <!-- Elemento de lista -->
         </ul>
-        <h5>Proyectos</h5>
+        <h5>Proyectos en Grupo</h5>
         <ol type="i"> <!-- Lista ordenada con números romanos -->
             <li>Proyecto progra 1</li> <!-- Elemento de lista ordenada -->
             <li>Proyecto procesos</li> <!-- Elemento de lista ordenada -->
@@ -85,28 +101,58 @@
         -->
 
         <table>
-            <caption>Ejemplo de tabla</caption> <!-- Nombre de la tabla -->
-            <tr>
-                <th>Nombre</th>
-                <th>Edad</th>
-                <th>Ciudad</th>
-            </tr>
-            <tr>
-                <td>Ana</td>
-                <td>30</td>
-                <td>Madrid</td>
-            </tr>
-            <tr>
-                <td>Carlos</td>
-                <td>25</td>
-                <td>Barcelona</td>
+            <caption> <!-- Agregamos el nombre de la tabla -->
+                Lista de estudiantes.
+            </caption>
+
+            <tr> <!-- Fila de encabezado -->
+                <th>Nombre</th> <!-- Encabezado -->
+                <th>Correo</th> <!-- Encabezado -->
+                <th>Dirección</th> <!-- Encabezado -->
+
             </tr>
 
+            <tr> <!-- Fila de datos número 2 -->
+                <td>Juan</td> <!-- Dato común/normal -->
+                <td>juan@example.com</td> <!-- Dato común/normal -->
+                <td>Calle 123</td> <!-- Dato común/normal -->
+            </tr>
+
+            <tr> <!-- Fila de datos número 3 -->
+                <td>Karla</td> <!-- Dato común/normal -->
+                <td>karla@example.com</td> <!-- Dato común/normal -->
+                <td>Calle 456</td> <!-- Dato común/normal -->
+            </tr>
+
+             <tr> <!-- Fila de datos número 4 -->
+                <td>María</td> <!-- Dato común/normal -->
+                <td>maria@example.com</td> <!-- Dato común/normal -->
+                <td>Calle 789</td> <!-- Dato común/normal -->
+             </tr>
+
+             <tr> <!-- Fila de datos número 5 -->
+                <td>Pedro</td> <!-- Dato común/normal -->
+                <td>pedro@example.com</td> <!-- Dato común/normal -->
+                <td>Calle 101</td> <!-- Dato común/normal -->
+            </tr>
+
+            <tr> <!-- Fila de datos número 6 -->
+                <td>Andrea</td> <!-- Dato común/normal -->
+                <td>andrea@example.com</td> <!-- Dato común/normal -->
+                <td>Calle 103</td> <!-- Dato común/normal -->
+            </tr>
         </table>
         
-
-
     </main>
+
+    <!-- .Pie de pagina <footer>: Contiene informacion complementaria, como datos de contacto, derechos de autor, enlaces .legales,
+    redes sociales o información del autor. Tiene que estar FUERA del main-->
+
+    <footer> <!-- Pie de página -->
+        <p> &copy; 2026 Universidad Europea del Atlántico. Todos los derechos reservados.</p>
+        <a href="https://www.uneatlantico.es/">Universidad Europea del Atlántico</a>
+
+    </footer>
 
 
 </body>
