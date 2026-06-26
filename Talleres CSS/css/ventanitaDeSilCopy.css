@@ -1,0 +1,51 @@
+/* Comentario */
+
+/* 
+Selectores
+selecto {
+    propiedad: valor;
+    otra-propiedad: valor;
+}
+*/
+/* Selector por etiqueta */
+
+h2, li{
+    color: rgb(56, 49, 96);
+}
+
+/* Selector por clase */
+.borde{
+    border: 2px solid rgb(208, 70, 12);
+}
+
+/* Ejemplos de páginas compartidas por la profe:
+- Flat UI Colors: https://flatuicolors.com/
+- Adobe Color: https://color.adobe.com/es/create/color-wheel
+*/
+
+.borde-inferior{
+    border-bottom: 6px solid rgb(26, 193, 109);
+}
+
+.importante{
+    color: rgb(210, 53, 17);
+    font-size: 24px;
+}
+
+/* Selector por id */
+#piePagina{
+    cursor: help;
+}
+
+/* Selector Universal (se le aplica a todos los elementos de la página)
+Se recomienda para resetear los estilos por defecto */
+*{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+}
+
+/* ToDo: Unidades relativas */
+
+/* Selector por atributo 
+ToDo: Pendiente al abarcar el tema de formularios 
+*/
