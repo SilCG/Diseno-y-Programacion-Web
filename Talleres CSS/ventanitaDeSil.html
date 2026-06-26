@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ventanita de Sil</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <link rel="stylesheet" href="css/ventanitaDeSil.css">
+
+
+</head>
+
+
+<body>
+
+<details>
+<summary>Informe de retroalimentación con IA y verificación de criterios</summary>
+
+<h2>Informe de retroalimentación con IA</h2>
+
+<p>Sometí mi código HTML completo a Claude (Anthropic) utilizando el prompt obligatorio centrado en accesibilidad y semántica. La IA identificó cinco recomendaciones, de las cuales aplicaré cuatro.</p>
+
+<p><strong>Recomendaciones útiles aplicadas:</strong> La más importante fue corregir el cierre de <code>&lt;header&gt;</code>, que tenía la etiqueta de apertura repetida en lugar de <code>&lt;/header&gt;</code>. Este error rompía la estructura semántica del documento, ya que el navegador no sabía dónde terminaba el encabezado, lo que podía hacer que el <code>&lt;nav&gt;</code> y el <code>&lt;main&gt;</code> quedaran anidados incorrectamente dentro de él. También corregí <code>lang="ep"</code> por <code>lang="es"</code>, ya que "ep" no es un código de idioma válido (ISO 639-1) y los lectores de pantalla dependen de ese atributo para elegir la pronunciación correcta. Cambié las rutas de imágenes de barras invertidas (<code>assets\img\...</code>) a barras normales (<code>assets/img/...</code>), porque las invertidas son sintaxis de Windows y pueden fallar al subir el sitio a un servidor o GitHub Pages. Finalmente, eliminé el <code>&lt;hr&gt;</code> antes del <code>&lt;footer&gt;</code>, ya que esa línea se interpretaba como una separación temática que en realidad no existe entre el contenido principal y el pie de página.</p>
+
+<p><strong>Recomendación no aplicada:</strong> La IA sugirió agregar un <code>&lt;h2&gt;</code> visualmente oculto antes del <code>&lt;footer&gt;</code> con el texto "Información de contacto". No la aplicaré porque añadiría complejidad extra (ocultar elementos con CSS) que está fuera del alcance de esta práctica, y el <code>&lt;footer&gt;</code> ya contiene un párrafo "Contacto:" que orienta al lector de forma suficiente.</p>
+
+<p><strong>Evaluación del análisis de la IA:</strong> En general, la IA identificó correctamente tanto el error más grave (el <code>&lt;header&gt;</code> mal cerrado) como las fortalezas reales del código, como el uso correcto de <code>alt=""</code> en la imagen decorativa, el <code>alt</code> descriptivo en la imagen informativa, el <code>aria-hidden="true"</code> en los tres íconos decorativos y el <code>aria-label</code> del <code>&lt;nav&gt;</code>. No detecté errores ni sesgos evidentes en su análisis; sin embargo, no profundizó en si el video de YouTube cumplía completamente los requisitos del ejercicio más allá de la accesibilidad básica.</p>
+
+<p><strong>Cambios reales realizados:</strong> corrección de <code>&lt;/header&gt;</code>, cambio de <code>lang="ep"</code> a <code>lang="es"</code>, rutas de imágenes con <code>/</code>, y eliminación del <code>&lt;hr&gt;</code> antes del footer.</p>
+
+<!--
+VERIFICACIÓN DE CRITERIOS:
+- header: contiene h1 y descripción de la página, correctamente cerrado.
+- nav: 2 enlaces internos (#historia, #menu), 1 externo (CRHoy), 1 a otra página (etiquetasNuevo.html).
+- main: agrupa las secciones "historia" y "menu".
+- footer: incluye email, teléfono, Instagram y derechos de autor (© 2026).
+- Tabla: 4 columnas x 5 filas de datos, con thead y tbody.
+- Lista ordenada: 4 elementos (Napolitana, Pepperoni, Jamón y Hongos, Vegetariana).
+- 2 imágenes con alt: pizzeria.png (decorativa, alt="") y ejemploPizza.png (informativa).
+- Multimedia: iframe de YouTube con title y controles accesibles nativos.
+- 3 íconos decorativos con aria-hidden="true": fa-pizza-slice, fa-star, fa-fire.
+- Validación: probado en Chrome. Todos los enlaces y anclas funcionan correctamente.
+-->
+
+</details>
+
+    <header>
+        <h1>Ventanita de Sil</h1>
+        <p>¡Bienvenidos a mi ventanita! Quiero compartirles mi experiencia de una buena pizza, hecha con cariño :)</p>
+    </header>
+
+    <!-- Menú de navegación -->
+    <nav aria-label="Menú principal">
+        <ul>
+            <!-- 2 enlaces internos (anclas a secciones de esta misma página) -->
+            <li><a href="#historia">Historia de la pizza</a></li>
+            <li><a href="#menu">Menú de pizzas</a></li>
+            <!-- 1 enlace externo -->
+            <li><a href="https://crhoy.com/gusto/las-mejores-pizzas-napolitanas/" target="_blank">Las mejores pizzas napolitanas</a></li>
+            <!-- 1 enlace a otra página -->
+            <li><a href="etiquetasNuevo.html">Ver página de etiquetas</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <img src="assets/img/pizzeria.png" alt=""> <!-- alt="": Recurso decorativo -->
+
+        <!-- Sección Historia - id para el ancla del nav -->
+        <section id="historia">
+            <!-- Ícono decorativo 1 -->
+            <h2><i class="fa-solid fa-pizza-slice" aria-hidden="true"></i> Historia de la pizza</h2>
+            <p>La pizza es un plato de origen italiano que se ha convertido en uno de los alimentos más populares en todo el mundo. Se cree que la pizza moderna se originó en Nápoles, Italia, en el siglo XVIII, aunque sus raíces pueden remontarse a la antigüedad. La pizza tradicional napolitana se caracteriza por su masa delgada y crujiente, salsa de tomate fresca, mozzarella de búfala y albahaca. Con el tiempo, la pizza ha evolucionado y se han creado numerosas variaciones en todo el mundo, adaptándose a diferentes gustos y culturas culinarias.</p>
+
+            <h2>Historia de nuestra pizza</h2>
+            <p>En nuestra pizzería, nos enorgullece ofrecer una pizza que no solo es deliciosa, sino que también está hecha con ingredientes de alta calidad y un toque de amor. Nuestra masa se prepara diariamente con harina fresca, agua, levadura y un poco de sal, lo que le da esa textura perfecta entre crujiente y suave. La salsa de tomate se elabora con tomates maduros y hierbas aromáticas, mientras que el queso mozzarella se selecciona cuidadosamente para garantizar su frescura y sabor. Cada pizza se hornea a la perfección, asegurando que cada bocado sea una experiencia culinaria inolvidable.</p>
+        </section>
+
+        <!-- Sección Menú - id para el ancla del nav -->
+        <section id="menu">
+            <h3>
+                <!-- Ícono decorativo 2 -->
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                Menú de pizzas
+            </h3>
+
+            <img src="assets/img/ejemploPizza.png" alt="Pizzas Napolitanas recién horneadas"> <!-- Recurso informativo -->
+            <br>
+
+            <!-- Lista ordenada con 4 elementos -->
+            <ol type="1">
+                <li>Napolitana</li>
+                <li>Pepperoni</li>
+                <li>Jamón y Hongos</li>
+                <li>Vegetariana</li>
+            </ol>
+
+            <h4>Ingredientes</h4>
+            <ul>
+                <li>Masa Madre</li>
+                <li>Salsa de Tomate</li>
+                <li>Queso Mozzarella</li>
+                <li>Albahaca Fresca</li>
+                <li>Orégano</li>
+                <li>Aceite de Oliva</li>
+            </ul>
+
+            <!-- Tabla: Menú con precios, tamaños e ingredientes -->
+            <h4 class="borde importante">
+                <!-- Ícono decorativo 3 -->
+                <i class="fa-solid fa-fire" aria-hidden="true"></i>
+                Tabla de precios y tamaños
+            </h4> 
+            <table border="1">
+                <caption>Menú de pizzas - Precios y tamaños</caption>
+                <thead>
+                    <tr>
+                        <th>Pizza</th>
+                        <th>Tamaño</th>
+                        <th>Ingredientes principales</th>
+                        <th>Precio (₡)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Napolitana</td>
+                        <td>Personal (25 cm)</td>
+                        <td>Tomate, mozzarella, albahaca</td>
+                        <td>₡4.500</td>
+                    </tr>
+                    <tr>
+                        <td>Napolitana</td>
+                        <td>Grande (40 cm)</td>
+                        <td>Tomate, mozzarella, albahaca</td>
+                        <td>₡8.500</td>
+                    </tr>
+                    <tr>
+                        <td>Pepperoni</td>
+                        <td>Personal (25 cm)</td>
+                        <td>Pepperoni, mozzarella, tomate</td>
+                        <td>₡5.200</td>
+                    </tr>
+                    <tr>
+                        <td>Jamón y Hongos</td>
+                        <td>Mediana (33 cm)</td>
+                        <td>Jamón, hongos, mozzarella</td>
+                        <td>₡7.000</td>
+                    </tr>
+                    <tr>
+                        <td>Vegetariana</td>
+                        <td>Grande (40 cm)</td>
+                        <td>Pimientos, cebolla, aceituna, tomate</td>
+                        <td>₡9.000</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Elemento multimedia: Video -->
+            <h4 class="borde-inferior">Cómo hacemos nuestra pizza</h4>
+            <iframe 
+                width="560" 
+                height="315" 
+                src="https://www.youtube.com/embed/WidvoXBsDbI" 
+                title="Video de YouTube sobre pizza"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
+
+        </section>
+
+    </main>
+
+    <!-- Footer con contacto y derechos de autor -->
+    <footer id="piePagina"> <!-- representan el pie de página -->
+        <p>Contacto:</p>
+        <ul>
+            <li>Email: ventanitadesil@gmail.com</li>
+            <li>Teléfono: +506 8833-0528</li>
+            <li>Instagram: @laventanitadesil</li>
+        </ul>
+        <p>&copy; 2026 Ventanita de Sil. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
+
+

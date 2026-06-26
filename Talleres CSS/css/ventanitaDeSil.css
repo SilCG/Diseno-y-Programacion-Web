@@ -1,0 +1,46 @@
+/* Comentario */
+
+/* 
+Selectores
+Selector {
+    propiedad: valor;
+    otra-propiedad: valor;
+}
+ */
+
+/* Selector por etiqueta */
+h2, li{
+    color:rgb(77, 15, 136); 
+}
+
+/* Selector por clase */
+.borde{
+    border: 2px solid #a29bfe
+}
+
+/* Selector por clase */
+.borde-inferior{
+    border-bottom: 5px solid #10288C
+}
+
+.importante{
+    color: #d63031;
+    font-size: 44px;
+}
+
+/* Selector por id */
+#piePagina{
+    cursor: help;
+}
+
+/* Selector universal */
+*{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+}
+
+/* TODO: Unidades relativas */
+
+/* Selector por atributo
+TODO: Pendiente abarcar el tema de formularios
+ */
