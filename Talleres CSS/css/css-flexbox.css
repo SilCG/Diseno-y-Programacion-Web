@@ -1,0 +1,120 @@
+:root {
+    --blanco: rgba(255, 255, 255, 0.915);
+    --negro: #1e2a3e;
+    --borde-radius: 20px
+}
+
+
+* {
+    font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+
+}
+
+body {
+    background-color: #f5f7fc;
+}
+
+.navbar {
+    background-color: var(--negro);
+    color: var(--blanco);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 10px;
+    /* Espacio entre elementos: https://css-tricks.com/snippets/css/a-guide-to-flexbox/#gap-row-gap-column-gap */
+    list-style: none;
+}
+
+.nav-links li a {
+    color: var(--blanco);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.user-icon {
+    font-size: 20px;
+    color: var(--blanco);
+}
+
+.card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+}
+
+.profile-card {
+    background: var(--blanco);
+    border-radius: var(--borde-radius);
+    max-width: 450px;
+    width: 100%;
+    padding: 20px;
+    box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid #4c9aff;
+}
+
+button {
+    border: none;
+    padding: 5px 20px;
+    border-radius: 15px;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.primary {
+    background-color: #4c9aff;
+    color: white;
+}
+
+.secondary {
+    background-color: #e2e8f0;
+    color: #1e2a3e;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #e2e8f0;
+}
+
+.stats div {
+    text-align: center;
+    font-size: 15px;
+    color: #334155;
+}
+
+.stats strong {
+    font-size: 25px;
+    display: block;
+    color: #0f172a;
+}
+
+h1, h5{
+    color: #0f172a;
+}
+
+footer{
+    text-align: center; 
+    padding: 15px; 
+    font-size: 14px; 
+    color: #5b6e8c;
+}

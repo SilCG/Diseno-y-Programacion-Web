@@ -1,0 +1,74 @@
+:root{ /* Lugar para guardar variables. Valores que se reutilizan en todo el CSS. */
+    --blanco: rgba(255, 255, 255, 0.915);
+    --azulOscuro: #1e2a3e;
+}
+
+* {
+    font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: #f5f7fc;
+}
+
+.navbar {
+    background-color: var(--azulOscuro); /* Fondo en azul oscuro.*/
+    color: var(--blanco); /*Texto dentro de la barra se pone blanco.*/
+    display: flex; /* Se activa Flexbox -+-+-+- Preguntarle a la profe! */
+    justify-content: space-between; /* Distribuye los tres elementos*/
+    align-items: center; /* Los centra verticalmente dentro de la barra.*/
+    padding: 0 20px; /* Sin espacio arriba/abajo, 20px a los lados. */
+}
+
+/* Dos cosas que arreglar:
+- Los links todavía se ven en lista vertical con puntos
+- Los links siguen azules con subrayado
+*/
+
+.nav-links {
+    display: flex; /* Pone los 4 links en fila horizontal en vez de lista vertical. */
+    gap: 10px; /* Espacio entre los links */
+    list-style: none; /* Quita los puntos de la lista */
+}
+
+.nav-links li a { /* Selecciona los links dentro de los elementos de la lista. Sin afectar los otros links */
+    color: var(--blanco); /* Cambia el color de los links a blanco */
+    text-decoration: none; /* Quita el subrayado de los links */
+    font-weight: bold; /* Pone los links en negrita */
+    padding: 10px; /* Espacio alrededor del texto de los links */
+}
+
+.user-icon {
+    font-size: 20px; /* Tamaño del icono de usuario */
+    color: var(--blanco); /* Color del icono de usuario */
+}
+
+.card-container { /* El <main> solo tiene un hijo directo: el <article>. Flex no tiene nada que poner en fila porque solo hay un elemento. Lo que hace es centrarlo. */
+    /* display: flex en un contenedor → pone en fila horizontal a sus hijos directos.*/
+    display: flex; /* Activa Flexbox */
+    justify-content: center; /* Centra horizontalmente la tarjeta */
+    align-items: center; /* Centra verticalmente la tarjeta */
+    padding: 12px; /* Espacio alrededor del contenedor de la tarjeta */
+}
+
+/* ¡Casi! Pero hay una diferencia importante. El card-container todavía no está centrando esos elementos, eso lo va a hacer el siguiente paso con .profile-card.
+Lo que está haciendo ahora mismo el card-container es esto:
+<main>  ← el contenedor con Flex
+    <article>  ← su único hijo, lo centra horizontalmente
+Por eso ves que el contenido se movió un poco hacia el centro de la pantalla comparado al paso anterior.
+Los elementos que mencionás (avatar, nombre, botones, etc.) todavía están a la izquierda porque están dentro del <article>, no son hijos directos del <main>. El Flex del card-container no los alcanza. */
+
+.profile-card { /* El <article> que contiene la tarjeta de perfil. */
+    background: var(--blanco); /* Fondo blanco */
+    border-radius: 20px; /* Bordes redondeados */
+    max-width: 450px; /* Ancho máximo de la tarjeta */
+    width: 100%; /* Ancho completo del contenedor */
+    padding: 20px; /* Espacio dentro de la tarjeta */
+    box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
+    text-align: center; /* Centra el texto dentro de la tarjeta */
+    display: flex; /* Activa Flexbox para los elementos dentro de la tarjeta */
+}
+
+/* El siguiente paso: .profile-card. Ahí le vas a decir al <article> que use Flex con flex-direction: column para apilar todo verticalmente y centrarlo.
+Eso responde tu pregunta también: flex-direction: column es lo que hace que los elementos se organicen de arriba hacia abajo en vez de en fila.
+Por defecto Flex organiza en fila. Con column lo cambiás a columna vertical. */

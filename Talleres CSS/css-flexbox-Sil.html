@@ -1,0 +1,87 @@
+<!-- Hecho a partir del ejemplo de la profe para repasar el html y entender como aplicar el CSS-->
+<!DOCTYPE html>
+<html lang="es">
+
+<head> <!-- Información sobre la página (no se ve en pantalla). Va título, idioma, y luego enlace con CSS. -->
+    <meta charset="UTF-8"> <!-- Permite usar tildes y ñ correctamente.-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--  Hace que la página se vea bien en celular.-->
+    <title>Ejercicio CSS y Flexbox</title> <!-- Título que aparece en la pestaña del navegador. -->
+
+    <!-- Íconos de FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Mi archivo CSS -->
+    <link rel="stylesheet" href="css/css-flexbox-Sil.css">
+
+</head>
+
+<body> <!-- Contenido que se ve en pantalla. -->
+
+    <!-- BARRA DE NAVEGACIÓN -->
+    <header role="banner"> <!-- Encabezado de la página. Contiene la barra de navegación. -->
+        <!-- role: lectores de pantalla de accesibilidad. En este caso "banner" significa "esta es la cabecera principal del sitio".-->
+        <nav class="navbar" aria-label="Navegación principal"> <!-- Indica que esto es una barra de navegación. class="navbar" es el nombre que luego usarás en el CSS para darle estilo.-->
+            <!-- aria-label: Atributo que permite proporcionar un nombre accesible a un elemento HTML.
+        Se recomienda cuando  no hay texto visible en la página pero se requiere que el lector de pantalla anuncie algo descriptivo -->
+
+            <!-- Logo: ícono + texto -->
+            <div class="logo" aria-label="Logotipo">
+                <i class="fas fa-user" aria-hidden="true"></i> <!-- le dice al lector de pantalla "ignora este ícono" para que no sea confuso-->
+                <span>Logo</span> <!-- span: contenedor de texto. Se usa para poder darle estilo al texto del logo. -->
+            </div>
+            
+            <!-- Links del menú -->
+            <ul class="nav-links" role="list">
+                <li><a href="#" aria-current="page">Inicio</a></li>
+                <li><a href="#">Acerca de</a></li> <!-- Un enlace. href="#" significa que por ahora no va a ningún lado.-->
+                <li><a href="#">Proyectos</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+
+            <!-- Ícono de usuario -->
+            <div class="user-icon" aria-label="Perfil de usuario">
+                <i class="fas fa-user-circle" aria-hidden="true"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL: PERFIL -->
+    <main id="main-content" class="card-container">
+
+        <!-- "main-content": Identifica este elemento como el contenido principal único de la página. Los lectores de pantalla lo usan para saltar directo al contenido -->
+        <!-- class="card container" El nombre que se usa en CSS para darle estilo -->
+        <article class="profile-card" aria-labelledby="profile-name">
+            <!-- aria-labelledby: Atributo que permite asociar un elemento con otro que contiene su etiqueta o descripción textual. -->
+            <!-- aria-labelledby="profile-name" — Le dice al lector de pantalla cuál es el título de este artículo.-->
+            <!-- Apunta al elemento que tenga id="profile-name". Cuando el lector de pantalla llega aquí, anuncia: "Ana García, artículo".-->
+        <!-- Ejemplo: aria-labelledby="profile-name" apunta al <h2> con id="profile-name">. El lector de pantalla indicaría: "Ana García, artículo".-->
+            
+            <img class="avatar" src="https://randomuser.me/api/portraits/lego/5.jpg" alt="Foto de perfil de Ana García">
+            <!-- alt="Foto de perfil de Ana García" — Si la imagen no carga, aparece este texto. El lector de pantalla también lo lee en voz alta. Nunca dejar el alt vacío en imágenes importantes. Recurso informativo.-->
+            <h2 id="profile-name">Ana García</h2>
+            <p>Desarrolladora Frontend</p>
+
+            <div class="button-group">
+                <button class="btn primary" aria-label="Seguir a Ana García"> <!-- lector indica a quién seguir examente en este caso a Ana García-->
+                    <i class="fas fa-user-plus" aria-hidden="true"></i> Seguir
+                </button>
+                <button class="btn secondary" aria-label="Enviar mensaje a Ana García">
+                    <i class="fas fa-envelope" aria-hidden="true"></i> Mensaje
+                </button>
+            </div>
+
+            <div class="stats" aria-label="Estadísticas del perfil">
+                <div><strong>120</strong> Seguidores</div> <!-- <strong> marca el texto como negrita -->
+                <div><strong>85</strong> Siguiendo</div>
+                <div><strong>32</strong> Publicaciones</div>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <p>Ejercicio de CSS y Flexbox</p>
+    </footer>
+
+</body>
+
+</html>
