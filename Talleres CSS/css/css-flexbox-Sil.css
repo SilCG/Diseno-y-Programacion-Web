@@ -1,5 +1,5 @@
 :root{ /* Lugar para guardar variables. Valores que se reutilizan en todo el CSS. */
-    --blanco: rgba(255, 255, 255, 0.915);
+    --blanco: #f5f7fc;
     --azulOscuro: #1e2a3e;
 }
 
@@ -8,7 +8,7 @@
 }
 
 body {
-    background-color: #f5f7fc;
+    background-color: #e8edf5;
 }
 
 .navbar {
@@ -26,7 +26,7 @@ body {
 */
 
 .nav-links {
-    display: flex; /* Pone los 4 links en fila horizontal en vez de lista vertical. */
+    display: flex; /* Pone los 4 links en fila horizontal en lugar de lista vertical. */
     gap: 10px; /* Espacio entre los links */
     list-style: none; /* Quita los puntos de la lista */
 }
@@ -63,12 +63,86 @@ Los elementos que mencionás (avatar, nombre, botones, etc.) todavía están a l
     border-radius: 20px; /* Bordes redondeados */
     max-width: 450px; /* Ancho máximo de la tarjeta */
     width: 100%; /* Ancho completo del contenedor */
-    padding: 20px; /* Espacio dentro de la tarjeta */
-    box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
+    padding: 20px; /* Espacio dentro de la tarjeta para no estar pegado al borde*/
+    box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.2); /* Sombra debajo de la tarjeta. Los 4 valores significan: horizontal vertical difuminado expansión color. */
     text-align: center; /* Centra el texto dentro de la tarjeta */
     display: flex; /* Activa Flexbox para los elementos dentro de la tarjeta */
+    flex-direction:column; /* Organiza los elementos dentro de la tarjeta en columna vertical */
+    align-items: center; /* Centra los elementos dentro de la tarjeta horizontalmente */
 }
 
 /* El siguiente paso: .profile-card. Ahí le vas a decir al <article> que use Flex con flex-direction: column para apilar todo verticalmente y centrarlo.
 Eso responde tu pregunta también: flex-direction: column es lo que hace que los elementos se organicen de arriba hacia abajo en vez de en fila.
 Por defecto Flex organiza en fila. Con column lo cambiás a columna vertical. */
+
+/* ¡La tarjeta apareció con esquinas redondeadas y sombra! Pero todo está en fila horizontal en vez de columna vertical.
+Es porque la imagen es muy grande y está empujando todo hacia los lados. Arreglo en paso siguiente. */
+
+.avatar{
+    width: 120px; /* Ancho de la imagen */
+    height: 120px; /* Alto de la imagen */
+    border-radius: 50%; /* Hace que la imagen sea circular */
+    border: 4px solid #4c9aff; /* Borde azul alrededor de la imagen */
+}
+
+button {
+    border: none; /* Quita el borde del botón */
+    padding: 5px 20px; /* Espacio dentro del botón */
+    border-radius: 15px; /* Bordes redondeados del botón */
+    font-weight: bold; /* Texto en negrita */
+    font-size: 15px; /* Tamaño del texto del botón */
+}
+
+.primary {
+    background-color: #4c9aff;
+    color: white; /* por qué no poner: color: var(--blanco);? */
+}
+
+.secondary {
+    background-color: #e2e8f0;
+    color: #1e2a3e; 
+}
+
+.stats{
+    display: flex; /* Pone los tres bloques (Seguidores, Siguiendo, Publicaciones) en fila horizontal.*/
+    justify-content: space-around; /* Distribuye los tres bloques con espacio igual entre ellos.*/
+    width: 100%; /* Ocupa todo el ancho de la tarjeta.*/
+    margin-top: 15px; /* Espacio por encima de las estadisticas */
+    padding-bottom: 15px; /* Espacio interno encima del contenido */
+    border-top: 1px solid #e2e8f0; /* La línea gris separadora entre los botones y las estadísticas. */
+}
+
+/* Agregando lo siguiente como instrucción del ejercicio */
+
+.stats div { /*  el texto pequeño debajo de cada número */
+    text-align: center; 
+    font-size: 15px; /* Tamaño texto "Seguidores", "Suguiendo" y "Publicaciones" */
+    color: #334155; /* Color  texto "Seguidores", "Suguiendo" y "Publicaciones" */
+}
+
+.stats strong { /* los números grandes 120, 85, 32 */
+    font-size: 25px;
+    display: block; /* Hace que el número quede en su propia línea, separado del texto debajo. */
+    color: #0f172a;
+}
+
+/* h1, h5{
+    color: #0f172a;
+}
+*/
+
+footer{
+    text-align: center;
+    padding: 15px;
+    font-size: 14px;
+    color: #5b6e8c;
+}
+
+.logo{
+    font-size: 20px;
+    color: var(--blanco);
+}
+
+.logo i{ /* .logo i apunta específicamente al ícono dentro del logo, sin afectar el texto "Logo".*/
+    color:#4c9aff;
+}
