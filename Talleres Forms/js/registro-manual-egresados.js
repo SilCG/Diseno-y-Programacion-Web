@@ -86,23 +86,39 @@ function resaltarCamposVacios() {
     /* // Fecha de registro - esta la agregó la profe en la clase pero luego la cambio por una fecha fija
     if (!inputFechaRegistro.value == "") {
         inputFechaRegistro.classList.add("input-error");
+        error = true;
     } else {
         inputFechaRegistro.classList.remove("input-error");
     }
     */
 
-    return error;
+    return error; /* Retornar el valor de error para que la función validarCamposVacios pueda usarlo y mostrar el mensaje correspondiente */
 }
 
 function validarCamposVacios() { /* creada apenas se creó el escuchador de eventos del botón btnRegistrarEgresado */
-    resaltarCamposVacios(); /* Llamar a la función resaltarCamposVacios para que se ejecute cuando se haga click en el botón */
+    const error = resaltarCamposVacios(); /* Llamar a la función resaltarCamposVacios para que se ejecute cuando se haga click en el botón */
+    if (error) {
+        Swal.fire({
+            title: "No se puede registrar el egresado",
+            text: "Por favor, complete todos los campos requeridos.",
+            icon: "warning",
+            confirmButtonText: "Regresar"
+        });
+    } else {
+        Swal.fire({
+            title: "Egresado registrado",
+            text: "El egresado ha sido registrado exitosamente.",
+            icon: "success",
+            confirmButtonText: "Aceptar"
+        });
+    }
 }
 
 btnRegistrarEgresado.addEventListener("click", validarCamposVacios);
 /* Creo este escuchador de eventos para que cuando se haga click en el botón de registrar egresado */
 /* Junto con esto se crea la función validarCamposVacios que se activa cuando se hace click en el botón */
 
-establecerFechaActual(); 
+establecerFechaActual(); /* Llamar a la función establecerFechaActual para que se ejecute al cargar la página */
 
 /* Reglas de == y ===:
     1 == "1": true 
