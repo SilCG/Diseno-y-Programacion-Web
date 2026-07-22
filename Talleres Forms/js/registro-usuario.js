@@ -30,7 +30,20 @@ function mostrarContrasenna(){
     }
 }
 
-/* 
+/*
+JSON - Lo entienden todos los lenguajes de programación y es un formato de texto que representa datos estructurados.
+
+nombre: "Sebastian"
+informacion_personal = [Sebastian, "Alajuela", "sebastian@test.com"]
+diccionario_informacion_personal = {
+    "nombre": "Sebastian",
+    "provincia": "Alajuela",
+    "correo": "sebastian@test.com"
+}
+
+
+*/ 
+/*
 Local Storage (LS) es un mecanismo del navegador que permite almacenar información en forma de pares clave–valor. 
 
 Los datos permanecen guardados incluso si el usuario cierra el navegador o apaga el equipo, hasta que se eliminen manualmente o mediante JavaScript: 

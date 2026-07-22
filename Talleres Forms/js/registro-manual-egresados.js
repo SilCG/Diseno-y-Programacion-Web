@@ -10,10 +10,18 @@ const inputFechaRegistro = document.getElementById("fecha-registro");
 
 const btnRegistrarEgresado = document.getElementById("guardar-egresado");
 
+// Todos los campos obligatorios 
+const inputsRequeridos = document.querySelectorAll("input[required]");
 
-function validarIdentificacion(identificacion) { /* Lo que está entre // es una expresión regular que valida la identificación */
-    return /^[0-9]{9,12}$/.test(identificacion) // Entre 9 y 12 ítems y solo entre 0-9
-    /* el .test compara la cadena con la expresión regular */
+// Contenedor de lugares de trabajo y botón agregar
+const lugaresContainer = document.getElementById("lugares-container"); // div donde se van a agregar de manera dinámica los lugares de trajo
+const btnAgregarLugar = document.getElementById("agregar-lugar-btn"); 
+const templateLugar = document.getElementById("template-lugar"); // Plantilla para cada lugar de trabajo que se agregue 
+
+let contadorLugares = 0; // Contador de lugares de trabajo agregados (para generar IDs únicos)
+
+function validarCedula(numeroCedula) { /* Lo que está entre // es una expresión regular que valida la cédula */
+    return /^[0-9]{9,12}$/.test(numeroCedula) // Entre 9 y 12 ítems y solo entre 0-9 - El .test compara la cadena con la expresión regular */
 }
 
 function validarNombreCompleto(nombre) {
@@ -48,12 +56,12 @@ function resaltarCamposVacios() {
     let error = false; // Asumir que no hay errores
 
     // Identificación
-    const identificacion = inputIdentificacion.value.trim(); /* el ".value" lo que hace es extraer el valor del input */
-    if (!validarIdentificacion(identificacion)) {
-        inputIdentificacion.classList.add("input-error");
+    const cedula = inputCedula.value.trim(); /* el ".value" lo que hace es extraer el valor del input */
+    if (!validarCedula(cedula)) { // No cumple con el formato
+        inputCedula.classList.add("input-error");
         error = true;
     } else {
-        inputIdentificacion.classList.remove("input-error");
+        inputCedula.classList.remove("input-error");
     }
 
     // Nombre completo
@@ -107,28 +115,86 @@ function validarCamposVacios() { /* creada apenas se creó el escuchador de even
     } else {
         Swal.fire({
             title: "Egresado registrado",
-            text: "El egresado ha sido registrado exitosamente.",
+            text: "Los datos han sido guardados correctamente.",
             icon: "success",
             confirmButtonText: "Aceptar"
         });
     }
 }
 
-btnRegistrarEgresado.addEventListener("click", validarCamposVacios);
-/* Creo este escuchador de eventos para que cuando se haga click en el botón de registrar egresado */
-/* Junto con esto se crea la función validarCamposVacios que se activa cuando se hace click en el botón */
+/**
+ * Actualiza los atributos (id, for, data-index) de un bloque para que
+ * coincidan con el índice proporcionado.
+ */
+function actualizarIndices(bloque, nuevoIndice) {
+    bloque.dataset.index = nuevoIndice;
+
+    // Actualizar id de inputs y atributos aria-describedby
+    const inputs = bloque.querySelectorAll("input");
+    inputs.forEach((input) => {
+        const baseId = input.id.replace(/\d+$/, ""); // elimina el número final
+        input.id = baseId + nuevoIndice;
+
+        const ayudaId = input.getAttribute("aria-describedby");
+        if (ayudaId) {
+            const nuevaAyudaId = ayudaId.replace(/\d+$/, nuevoIndice);
+            input.setAttribute("aria-describedby", nuevaAyudaId);
+        }
+    });
+
+    // Actualizar for de los labels
+    const labels = bloque.querySelectorAll("label");
+    labels.forEach((label) => {
+        const forAttr = label.getAttribute("for");
+        if (forAttr) {
+            const baseFor = forAttr.replace(/\d+$/, "");
+            label.setAttribute("for", baseFor + nuevoIndice);
+        }
+    });
+
+    // Actualizar id de los spans de ayuda
+    const ayudas = bloque.querySelectorAll(".texto-oculto");
+    ayudas.forEach((ayuda) => {
+        const idAyuda = ayuda.id;
+        if (idAyuda) {
+            const baseIdAyuda = idAyuda.replace(/\d+$/, "");
+            ayuda.id = baseIdAyuda + nuevoIndice;
+        }
+    });
+}
+
+/**
+ * Crea un nuevo bloque de lugar de trabajo a partir del template,
+ * le asigna un índice único y lo devuelve.
+ */
+function crearBloqueLugar() {
+    const clon = templateLugar.content.cloneNode(true);
+    const bloque = clon.firstElementChild; // div.bloque-lugar
+
+    const nuevoIndice = contadorLugares++;
+    actualizarIndices(bloque, nuevoIndice);
+
+    // Agregar evento al botón eliminar
+    const btnEliminar = bloque.querySelector(".eliminar-lugar");
+    btnEliminar.addEventListener("click", function (e) {
+        e.preventDefault();
+        bloque.remove();
+    });
+
+    return bloque;
+}
+
 
 establecerFechaActual(); /* Llamar a la función establecerFechaActual para que se ejecute al cargar la página */
 
-/* Reglas de == y ===:
-    1 == "1": true 
-    0 == false: true
+// Evento del botón guardar/registrar
+btnRegistrarEgresado.addEventListener("click", validarCamposVacios); /* Llamar a la función validarCamposVacios cuando se haga click en el botón de registrar egresado */
+/* Creo este escuchador de eventos para que cuando se haga click en el botón de registrar egresado */
+/* Junto con esto se crea la función validarCamposVacios que se activa cuando se hace click en el botón */
 
-    1 === "1": false 1. Se compara el tipo de dato (number == string), 2. Se compara el dato (1 == 1)
-    1 === 1: true 1. Se compara el tipo de dato (number == number), 2. Se compara el dato (1 == 1)
-    */
-
-console.log(1 == "1");
-console.log(1 === "1");
-console.log(0 == false);
-console.log(0 === false);
+// Evento del botón agregar lugar de trabajo
+btnAgregarLugar.addEventListener("click", function(e) {
+    e.preventDefault(); // Desactivar la accción predeterminada de ese botón, y así tener control de qué debe realment hacer
+    const bloque = crearBloqueLugar();
+    lugarContainer.appendChild(bloque);
+});
