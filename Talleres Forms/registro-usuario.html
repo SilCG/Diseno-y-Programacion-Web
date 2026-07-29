@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear cuenta</title>
+
+    <link rel="stylesheet" href="css/estilos-generales.css">
+</head>
+
+
+<body>
+
+    <main>
+        <header>
+            <h1>Registro de usuario</h1>
+            <p class="subtitulo">Complete todos los camppos obligatorios para crear su cuenta</p>
+        </header>
+
+        <form action="" novalidate> <!-- El novalidate es para que ya no me haga la verificaciones de campo de base del HTML. La validaciones las vamos a hacer con JavaScript-->
+            <!-- Nombre -->
+            <div>
+                <label for="nombre">Nombre completo</label> <!-- La etiquete nombre pertenece a este <input type="text" id="nombre"> -->
+                <span aria-hidden="true">*</span>
+
+                <div>
+                    <input type="text" id="nombre" placeholder="ej. María Pérez" aria-describedby="ayuda-nombre" required aria-required="true">
+                    <span id="ayuda-nombre" class="texto-oculto">Ingrese su nombre completo (mínimo 5 caracteres), por ejemplo: María Pérez</span>
+                </div>
+            </div>
+
+            <!-- Correo -->
+            <div>
+                <label for="correo">Correo electrónico</label> 
+                <span aria-hidden="true">*</span>
+
+                <div>
+                    <input type="email" id="correo" placeholder="ej. nombre.apellido@ucenfotec.ac.cr" aria-describedby="ayuda-correo" required aria-required="true">
+                    <span id="ayuda-correo" class="texto-oculto">Ingrese su correo institucional por ejemplo: nombre.apellido@ucenfotec.ac.cr</span>
+                </div>
+            </div>
+
+            <!-- Contraseña -->
+            <div>
+                <label for="contrasenna">Contraseña</label> 
+                <span aria-hidden="true" class="label-requerido">*</span>
+
+                <div>
+                    <input type="password" id="contrasenna" required aria-required="true">
+                </div>
+            </div>
+
+            <!-- Verificación de contraseña -->
+            <div>
+                <label for="verificacion-contrasenna">Verificación Contraseña</label> 
+                <span aria-hidden="true" class="label-requerido">*</span>
+
+                <div>
+                    <input type="password" id="verificacion-contrasenna" aria-describedby="ayuda-verificacion-contrasenna" required aria-required="true">
+                    <span id="ayuda-verificacion-contrasenna" class="texto-oculto">Ingrese de nuevo su contraseña</span>
+                </div>
+            </div>
+
+            <button class="guardar-formulario" id="crear-cuenta">Crear cuenta</button> <!-- Todo botón debe tener un id para saber si el usuario ha interactuado con el botón-->
+
+        </form>
+
+    </main>
+    
+</body>
+
+</html>
